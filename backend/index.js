@@ -1,9 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 const connectDB = require('./config/db');
 
-dotenv.config();
+// Load environment variables from backend/.env
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 connectDB();
 
@@ -16,6 +18,16 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
   next();
+});
+
+// Root welcome/health endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'success',
+    message: 'StudyDash Student Productivity Dashboard API is running successfully!',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'production'
+  });
 });
 
 app.use('/api/auth', require('./routes/auth'));

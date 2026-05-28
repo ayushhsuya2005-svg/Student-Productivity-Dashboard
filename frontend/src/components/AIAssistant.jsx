@@ -41,11 +41,11 @@ export default function AIAssistant() {
       });
       const tasks = await res.json();
       if (Array.isArray(tasks)) {
-        const pending = tasks.filter(t => !t.completed);
-        const completed = tasks.filter(t => t.completed);
+        const pending = tasks.filter(t => t.status !== 'Completed');
+        const completed = tasks.filter(t => t.status === 'Completed');
         
         // Sort pending by priority and date
-        const priorityOrder = { high: 1, medium: 2, low: 3 };
+        const priorityOrder = { High: 1, Medium: 2, Low: 3 };
         const sortedPending = [...pending].sort((a, b) => {
           const priorityA = priorityOrder[a.priority] || 4;
           const priorityB = priorityOrder[b.priority] || 4;
