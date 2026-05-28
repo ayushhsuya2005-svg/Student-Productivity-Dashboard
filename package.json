@@ -1,0 +1,10 @@
+{
+  "name": "student-productivity-dashboard-root",
+  "version": "1.0.0",
+  "description": "Root package.json for deploying the Express backend on Render",
+  "scripts": {
+    "postinstall": "npm install --prefix backend",
+    "start": "node backend/index.js"
+  },
+  "dependencies": {}
+}
