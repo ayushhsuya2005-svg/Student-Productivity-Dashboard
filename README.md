@@ -10,6 +10,8 @@
 
 > The all-in-one productivity platform designed for modern students. Track attendance, manage tasks, take notes, set schedules, and get AI-powered insights — all in one beautiful dashboard.
 
+👉 **Live Demo**: [https://frontend-dun-five-96.vercel.app](https://frontend-dun-five-96.vercel.app)
+
 ---
 
 ## ✨ Features
